@@ -1,5 +1,4 @@
 #!/bin/bash
-
 # Main loop
 function main_menu {
   clear
@@ -12,7 +11,6 @@ function main_menu {
   echo "6. Exit"
   echo -n "Enter your choice [1-6]: "
   read choice
-
   case $choice in
     1) add_rule;;
     2) remove_rule;;
@@ -23,26 +21,22 @@ function main_menu {
     *) echo "Invalid choice. Try again.";;
   esac
 }
-
 # Function to add an iptables rule
 function add_rule {
   read -p "Enter the IP address to be blocked: " ip_address
   iptables -A INPUT -s $ip_address -j DROP
   echo "Rule added successfully!"
 }
-
 # Function to remove an iptables rule
 function remove_rule {
   read -p "Enter the IP address to unblock: " ip_address
   iptables -D INPUT -s $ip_address -j DROP
   echo "Rule removed successfully!"
 }
-
 # Function to view iptables rules
 function view_rules {
   iptables -L
 }
-
 # Function to set standard L4 rules
 function set_l4_rules {
   echo "Install CSF Firewall..."
@@ -57,7 +51,6 @@ function set_l4_rules {
   cd
   sudo csf –s
 }
-
 # Function to install WAF (Modsecurity Nginx with OWASP Rule Set)
 function install_waf {
   echo "Installing Modsecurity Nginx with OWASP Rule Set..."
@@ -65,5 +58,4 @@ function install_waf {
   docker pull krish512/modsecurity
   echo "Modsecurity Nginx with OWASP Rule Set installed successfully!"
 }
-
 main_menu
