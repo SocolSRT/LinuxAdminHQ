@@ -1,5 +1,4 @@
 #!/bin/bash
-
 function main_menu {
     clear
     echo "##### Main Menu #####"
@@ -9,7 +8,6 @@ function main_menu {
     echo
     echo -n "Enter your choice [1-3]: "
     read choice
-
     case $choice in
         1) nginx_menu;;
         2) php_menu;;
@@ -17,7 +15,6 @@ function main_menu {
         *) echo -e "\nInvalid option. Try again."; sleep 2; main_menu;;
     esac
 }
-
 function nginx_menu {
     clear
     echo "##### Nginx Configuration #####"
@@ -29,7 +26,6 @@ function nginx_menu {
     echo
     echo -n "Enter your choice [1-5]: "
     read choice
-
     case $choice in
         1) view_nginx_config;;
         2) edit_nginx_config;;
@@ -39,7 +35,6 @@ function nginx_menu {
         *) echo -e "\nInvalid option. Try again."; sleep 2; nginx_menu;;
     esac
 }
-
 function php_menu {
     clear
     echo "##### PHP Configuration #####"
@@ -50,7 +45,6 @@ function php_menu {
     echo
     echo -n "Enter your choice [1-4]: "
     read choice
-
     case $choice in
         1) view_php_config;;
         2) edit_php_config;;
@@ -59,7 +53,6 @@ function php_menu {
         *) echo -e "\nInvalid option. Try again."; sleep 2; php_menu;;
     esac
 }
-
 function view_nginx_config {
     clear
     echo "##### Nginx Configuration #####"
@@ -70,7 +63,6 @@ function view_nginx_config {
     read
     nginx_menu
 }
-
 function edit_nginx_config {
     clear
     echo "##### Nginx Configuration #####"
@@ -78,7 +70,6 @@ function edit_nginx_config {
     nano /etc/nginx/nginx.conf
     nginx_menu
 }
-
 function restart_nginx {
     clear
     echo "##### Nginx Configuration #####"
@@ -90,7 +81,6 @@ function restart_nginx {
     read
     nginx_menu
 }
-
 function edit_domain {
     clear
     echo "##### Edit Domain Configuration #####"
@@ -100,7 +90,6 @@ function edit_domain {
     sudo nano /etc/nginx/sites-enabled/$domain_name
     nginx_menu
 }
-
 function view_php_config {
     clear
     echo "##### PHP Configuration #####"
@@ -111,7 +100,6 @@ function view_php_config {
     read
     php_menu
 }
-
 function edit_php_config {
     clear
     echo "##### PHP Configuration #####"
@@ -119,7 +107,6 @@ function edit_php_config {
     nano $(php --ini | grep "Loaded Configuration File" | awk '{print $4}')
     php_menu
 }
-
 function restart_php {
     clear
     echo "##### PHP Configuration #####"
@@ -133,5 +120,4 @@ function restart_php {
     read
     php_menu
 }
-
 main_menu
