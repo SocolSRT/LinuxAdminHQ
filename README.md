@@ -1,6 +1,8 @@
 # LinuxAdminHQ
 Introducing LinuxAdminHQ, the powerful web server control panel for managing Linux servers. This easy to use panel to administer your server environment through secure SSH connections. With LinuxAdminHQ, you can manage your websites, databases, and software with just a few clicks. No more juggling multiple terminal windows or memorizing complex command lines.
 
+*OS: Ubuntu / Debian*
+
 # menu.bash
 1. Install Nginx
 2. Install PHP
